@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ಸ್ವಾತಂತ್ರ್ಯ ದಿನಾಚರಣೆ ಭಾಷಣ - ಮುದ್ರಣ ಯೋಗ್ಯ</title>
+  <style>
+    /* --- reset & base --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f2f5;
+      font-family: 'Segoe UI', 'Noto Sans Kannada', 'Kannada Sangam MN', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    /* --- main card --- */
+    .speech-card {
+      max-width: 820px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+      padding: 2.2rem 2.5rem;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      position: relative;
+    }
+
+    /* --- top tricolor bar --- */
+    .tricolor-bar {
+      display: flex;
+      height: 8px;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      margin-top: -2.2rem;
+      margin-bottom: 1.8rem;
+    }
+    .tricolor-bar .saffron { flex: 1; background: #FF9933; }
+    .tricolor-bar .white { flex: 1; background: #ffffff; border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .tricolor-bar .green { flex: 1; background: #138808; }
+
+    /* --- editable fields --- */
+    .field-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 1.8rem;
+      background: #f8faff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 18px;
+      margin-bottom: 1.8rem;
+      border: 1px dashed #b0c8e0;
+    }
+    .field-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .field-item label {
+      font-weight: 600;
+      color: #1e3a6b;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+    .field-item input {
+      padding: 0.45rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 40px;
+      font-size: 1rem;
+      background: white;
+      width: 170px;
+      font-weight: 500;
+      color: #0b2a4a;
+      transition: 0.2s;
+    }
+    .field-item input:focus {
+      outline: 2px solid #1e6f9f;
+      border-color: transparent;
+    }
+    .field-item input#classInput {
+      width: 110px;
+    }
+
+    /* --- main speech content --- */
+    .speech-content {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .speech-content p {
+      margin-bottom: 1.1rem;
+    }
+
+    .greeting {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #0b2a4a;
+      margin-bottom: 1.4rem;
+      border-left: 4px solid #FF9933;
+      padding-left: 1rem;
+      background: #fefaf0;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+    }
+
+    .highlight-name {
+      font-weight: 700;
+      color: #1e6f9f;
+      background: #e7f0fa;
+      padding: 0.1rem 0.6rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .highlight-class {
+      font-weight: 700;
+      color: #138808;
+      background: #e6f5e6;
+      padding: 0.1rem 0.6rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .quotes {
+      background: #f1f6fe;
+      padding: 1.2rem 1.8rem;
+      border-radius: 18px;
+      margin: 1.6rem 0;
+      border-left: 6px solid #FF9933;
+      font-style: normal;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #1e3a6b;
+      margin-top: 2rem;
+      padding-top: 0.8rem;
+      border-top: 2px solid #FF9933;
+    }
+    .tagline span {
+      display: inline-block;
+      background: #138808;
+      color: white;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      margin: 0 0.2rem;
+    }
+
+    /* --- action buttons --- */
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 2.2rem;
+    }
+    .btn {
+      background: white;
+      border: 1px solid #1e6f9f;
+      padding: 0.7rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1e6f9f;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .btn-primary {
+      background: #1e6f9f;
+      color: white;
+      border: none;
+    }
+    .btn-primary:hover {
+      background: #0f4b70;
+      transform: scale(1.02);
+    }
+    .btn-outline:hover {
+      background: #e7f0fa;
+    }
+    .btn i {
+      font-style: normal;
+      font-size: 1.1rem;
+    }
+
+    /* --- print styles --- */
+    @media print {
+      body { background: white; padding: 0.2in; }
+      .speech-card { box-shadow: none; border: 1px solid #ccc; padding: 1.5rem; }
+      .tricolor-bar { margin-top: 0; }
+      .field-group, .action-bar { display: none !important; }
+      .speech-content { font-size: 1.1rem; }
+      .greeting { background: #fcf7f0; }
+      .tagline span { background: #138808 !important; color: white !important; }
+    }
+
+    /* --- responsive --- */
+    @media (max-width: 580px) {
+      .speech-card { padding: 1.5rem 1.2rem; }
+      .field-group { flex-direction: column; gap: 0.8rem; }
+      .field-item input { width: 100%; }
+      .field-item input#classInput { width: 100%; }
+      .action-bar { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="speech-card">
+  <!-- tricolor -->
+  <div class="tricolor-bar">
+    <div class="saffron"></div>
+    <div class="white"></div>
+    <div class="green"></div>
+  </div>
+
+  <!-- EDITABLE FIELDS -->
+  <div class="field-group">
+    <div class="field-item">
+      <label for="nameInput">👤 ಹೆಸರು</label>
+      <input type="text" id="nameInput" value="ವಿಜಯಕುಮಾರ ಉಡಬಾಳ placeholder="ನಿಮ್ಮ ಹೆಸರು">
+    </div>
+    <div class="field-item">
+      <label for="classInput">📚 ತರಗತಿ</label>
+      <input type="text" id="classInput" value="M.Sc" placeholder="ಉದಾ: M.Sc">
+    </div>
+  </div>
+
+  <!-- SPEECH CONTENT -->
+  <div class="speech-content" id="speechContainer">
+    <div class="greeting">
+      🇮🇳 ಗೌರವಾನ್ವಿತ ಮುಖ್ಯ ಶಿಕ್ಷಕರೇ, ಪ್ರೀತಿಯ ಶಿಕ್ಷಕರೇ ಹಾಗೂ ನನ್ನ ಆತ್ಮೀಯ ಸ್ನೇಹಿತರೇ, ಎಲ್ಲರಿಗೂ ನನ್ನ ಶುಭೋದಯ.
+    </div>
+
+    <p>
+      <span class="highlight-name" id="displayName">ವಿಜಯಕುಮಾರ ಉಡಬಾಳ </span>, 
+      <span class="highlight-class" id="displayClass">10</span> ನೇ ತರಗತಿಯ ವಿದ್ಯಾರ್ಥಿ/ವಿದ್ಯಾರ್ಥಿನಿ.
+    </p>
+
+    <p>
+      ಇಂದು ನಾವು ನಮ್ಮ ದೇಶದ ಸ್ವಾತಂತ್ರ್ಯ ದಿನಾಚರಣೆಯನ್ನು ಅತ್ಯಂತ ಹೆಮ್ಮೆಯಿಂದ ಮತ್ತು ಸಂತೋಷದಿಂದ ಆಚರಿಸುತ್ತಿದ್ದೇವೆ.
+    </p>
+
+    <p>
+      <strong>ಭಾರತವು 1947ರ ಆಗಸ್ಟ್ 15ರಂದು</strong> ಬ್ರಿಟಿಷರ ಆಳ್ವಿಕೆಯಿಂದ ಸ್ವಾತಂತ್ರ್ಯವನ್ನು ಪಡೆಯಿತು. ಈ ಸ್ವಾತಂತ್ರ್ಯ ನಮಗೆ ಸುಲಭವಾಗಿ ದೊರೆತದ್ದಲ್ಲ.
+    </p>
+
+    <div class="quotes">
+      <p style="margin-bottom: 0.4rem;">🚩 ಮಹಾತ್ಮ ಗಾಂಧೀಜಿ, ಸುಭಾಷ್ ಚಂದ್ರ ಬೋಸ್, ಭಗತ್ ಸಿಂಗ್, ಚಂದ್ರಶೇಖರ ಆಜಾದ್, ರಾಣಿ ಲಕ್ಷ್ಮೀಬಾಯಿ ಹಾಗೂ ಅನೇಕ ಸ್ವಾತಂತ್ರ್ಯ ಹೋರಾಟಗಾರರು ದೇಶಕ್ಕಾಗಿ ತಮ್ಮ ಜೀವನವನ್ನೇ ಅರ್ಪಿಸಿದರು.</p>
+      <p style="margin-bottom: 0;">ಅವರ ತ್ಯಾಗ ಮತ್ತು ಹೋರಾಟದ ಫಲವಾಗಿ ಇಂದು ನಾವು ಸ್ವತಂತ್ರವಾಗಿ ಮಾತನಾಡಲು, ಕಲಿಯಲು ಮತ್ತು ನಮ್ಮ ಕನಸುಗಳನ್ನು ನನಸಾಗಿಸಲು ಸಾಧ್ಯವಾಗಿದೆ.</p>
+    </div>
+
+    <p>
+      <strong>ಸ್ವಾತಂತ್ರ್ಯ ಎಂದರೆ ಕೇವಲ ವಿದೇಶಿ ಆಳ್ವಿಕೆಯಿಂದ ಮುಕ್ತಿ ಪಡೆಯುವುದಲ್ಲ.</strong> ದೇಶದ ಏಕತೆ, ಶಾಂತಿ, ಸ್ವಚ್ಛತೆ, ಪ್ರಾಮಾಣಿಕತೆ ಮತ್ತು ಜವಾಬ್ದಾರಿಯನ್ನು ಕಾಪಾಡುವುದು ಕೂಡ ನಮ್ಮ ಕರ್ತವ್ಯವಾಗಿದೆ.
+    </p>
+
+    <p>
+      ನಾವು ವಿದ್ಯಾರ್ಥಿಗಳಾಗಿ ಚೆನ್ನಾಗಿ ಓದಿ, ಉತ್ತಮ ಗುಣಗಳನ್ನು ಬೆಳೆಸಿಕೊಂಡು, ಶಿಕ್ಷಕರು ಮತ್ತು ಹಿರಿಯರನ್ನು ಗೌರವಿಸಿ, ಪರಿಸರವನ್ನು ರಕ್ಷಿಸಿ ದೇಶದ ಅಭಿವೃದ್ಧಿಗೆ ಕೊಡುಗೆ ನೀಡಬೇಕು.
+    </p>
+
+    <p>
+      <strong>ನಮ್ಮ ಭಾರತವನ್ನು ಬಲಿಷ್ಠ, ಸ್ವಚ್ಛ, ಶಾಂತಿಯುತ ಮತ್ತು ಅಭಿವೃದ್ಧಿಶೀಲ ರಾಷ್ಟ್ರವನ್ನಾಗಿ ಮಾಡುವುದು ನಮ್ಮೆಲ್ಲರ ಕರ್ತವ್ಯ.</strong>
+    </p>
+
+    <p>
+      ಕೊನೆಯದಾಗಿ, ದೇಶದ ಸ್ವಾತಂತ್ರ್ಯಕ್ಕಾಗಿ ಹೋರಾಡಿ ತಮ್ಮ ಪ್ರಾಣವನ್ನು ತ್ಯಾಗ ಮಾಡಿದ ಎಲ್ಲಾ ಮಹಾನ್ ಸ್ವಾತಂತ್ರ್ಯ ಹೋರಾಟಗಾರರಿಗೆ ಗೌರವಪೂರ್ವಕ ನಮನಗಳನ್ನು ಸಲ್ಲಿಸುತ್ತೇನೆ.
+    </p>
+
+    <div class="tagline">
+      🇮🇳 <span>ಜೈ ಹಿಂದ್!</span> 🇮🇳 <br style="display: none;">
+      <span style="background: #FF9933; color: white; margin-top: 0.3rem;">ಜೈ ಭಾರತ್!</span>
+    </div>
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  <div class="action-bar">
+    <button class="btn btn-primary" onclick="updateSpeech()">🔄 ಅಪ್ಡೇಟ್ ಮಾಡಿ</button>
+    <button class="btn btn-outline" onclick="window.print()">🖨️ ಮುದ್ರಿಸಿ (Print)</button>
+  </div>
+
+  <p style="text-align: center; margin-top: 1.2rem; font-size: 0.85rem; color: #64748b;">
+    ✦ ಹೆಸರು / ತರಗತಿ ಬದಲಾಯಿಸಿ, "ಅಪ್ಡೇಟ್ ಮಾಡಿ" ಕ್ಲಿಕ್ ಮಾಡಿ. ಮುದ್ರಿಸಲು Print ಬಳಸಿ.- ಶ್ರೀ ವಿಜಯಕುಮಾರ ಉಡಬಾಳ ✦
+  </p>
+</div>
+
+<script>
+  (function() {
+    const nameInput = document.getElementById('nameInput');
+    const classInput = document.getElementById('classInput');
+    const displayName = document.getElementById('displayName');
+    const displayClass = document.getElementById('displayClass');
+
+    // initial sync
+    function syncFields() {
+      displayName.textContent = nameInput.value.trim() || 'ನಿಮ್ಮ ಹೆಸರು';
+      displayClass.textContent = classInput.value.trim() || 'ತರಗತಿ';
+    }
+
+    // update function (called by button)
+    window.updateSpeech = function() {
+      syncFields();
+      // optional small feedback
+      const btn = document.querySelector('.btn-primary');
+      const original = btn.innerHTML;
+      btn.innerHTML = '✅ ಅಪ್ಡೇಟ್ ಆಯಿತು!';
+      setTimeout(() => {
+        btn.innerHTML = original;
+      }, 1800);
+    };
+
+    // also sync on Enter key (convenience)
+    nameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') updateSpeech(); });
+    classInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') updateSpeech(); });
+
+    // sync on blur (optional)
+    nameInput.addEventListener('blur', syncFields);
+    classInput.addEventListener('blur', syncFields);
+
+    // initial load
+    syncFields();
+
+    // ensure that if user edits but doesn't click update, still show changes on print? 
+    // we sync before print too.
+    window.addEventListener('beforeprint', function() {
+      syncFields();
+    });
+
+  })();
+</script>
+
+</body>
+</html>
